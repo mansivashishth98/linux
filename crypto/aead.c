@@ -21,6 +21,7 @@
 #include <linux/cryptouser.h>
 #include <linux/compiler.h>
 #include <net/netlink.h>
+#include <stdio.h>
 
 #include "internal.h"
 
@@ -418,7 +419,7 @@ int aead_register_instance(struct crypto_template *tmpl,
 
 	err = aead_prepare_alg(&inst->alg);
 	if (err)
-		return err;
+		return err;//returns error
 
 	return crypto_register_instance(tmpl, aead_crypto_instance(inst));
 }
